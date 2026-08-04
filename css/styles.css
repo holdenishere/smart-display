@@ -1053,9 +1053,18 @@ img {
 .conn-banner.is-visible {
   opacity: 1;
 }
-.conn-banner .material-symbols-rounded {
-  font-size: 16px;
-  color: var(--md-warning);
+.conn-banner.is-persistent {
+  max-width: min(680px, calc(100vw - 40px));
+  white-space: normal;
+  text-align: left;
+  padding: 12px 18px;
+  border-color: var(--md-danger);
+}
+.conn-banner code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: monospace;
 }
 
 /* ---------------------------------------------------------------------------
