@@ -52,6 +52,11 @@
       } else if (status === "auth_failed") {
         banner.innerHTML = `<span class="material-symbols-rounded">error</span><span>Home Assistant authentication failed</span>`;
         banner.classList.add("is-visible");
+      } else if (status === "insecure_mismatch") {
+        // A config problem, not a transient network blip — stays up and
+        // uses a wider layout so the fix is actually readable.
+        banner.classList.add("is-visible", "is-persistent");
+        banner.innerHTML = `<span class="material-symbols-rounded">error</span><span>This page is HTTPS but Home Assistant's URL is http:// — update <code>homeAssistant.baseUrl</code> in config.js to https://. See Settings for details.</span>`;
       }
     });
   }
