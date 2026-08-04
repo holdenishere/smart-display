@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>Home</title>
+
+<!-- Roboto (body/display) — Nest Hub's closest freely-licensed match for Google Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<!-- Material Symbols Rounded, subset to only the icons this dashboard uses.
+     Google's dynamic subsetting keeps payload small — critical on weak hardware. -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home,weekend,bed,kitchen,music_note,partly_cloudy_day,videocam,settings,event,event_available,event_busy,chevron_right,smartphone,phonelink_erase,wifi,wifi_off,bolt,battery_full,smart_toy,lightbulb,mode_fan,tv,power,toggle_on,light_mode,brightness_6,volume_up,dark_mode,auto_awesome_mosaic,history_toggle_off,check_circle,directions_run,door_front,lock,lock_open,graphic_eq,skip_previous,skip_next,play_arrow,pause,music_off,cloud_off,sunny,bedtime,cloud,foggy,weather_hail,thunderstorm,rainy,weather_snowy,weather_mix,air,warning,device_thermostat,table_lamp,wb_twilight,movie,info,close,error,camera_alt,hourglass_empty,videocam_off,autorenew"
+/>
+
+<link rel="stylesheet" href="css/themes.css" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <div class="conn-banner" id="conn-banner">
+    <span class="material-symbols-rounded">wifi_off</span>
+    <span>Reconnecting…</span>
+  </div>
+
+  <div class="page-track" id="page-track">
+
+    <!-- Page 1: Dashboard -->
+    <section class="page is-active" id="page-dashboard">
+      <div class="top-row">
+        <div class="clock-block">
+          <div class="clock"><span id="clock-time">--:--</span><span class="ampm" id="clock-ampm"></span></div>
+          <div class="date" id="clock-date">—</div>
+          <div class="greeting" id="greeting-text">Good Morning</div>
+        </div>
+
+        <div class="card weather-card" id="card-weather">
+          <div class="empty-state"><span class="material-symbols-rounded">cloud</span><span>Loading weather…</span></div>
+        </div>
+
+        <div class="card upnext-card" id="card-upnext">
+          <div class="empty-state"><span class="material-symbols-rounded">event</span><span>Loading calendar…</span></div>
+        </div>
+      </div>
+
+      <div class="card-grid grid-4">
+        <div class="card feature-card phone-card" id="card-phone"></div>
+        <div class="card feature-card" id="card-ring"></div>
+        <div class="card feature-card" id="card-roborock"></div>
+        <div class="card feature-card" id="card-spotify"></div>
+      </div>
+
+      <div class="card-grid grid-lower">
+        <div class="card feature-card living-room-card" id="card-living-room"></div>
+        <div class="card feature-card" id="card-favorites"></div>
+        <div class="card feature-card list-card" id="card-activity"></div>
+        <div class="card feature-card list-card" id="card-calendar"></div>
+      </div>
+    </section>
+
+    <!-- Page 2: Rooms -->
+    <section class="page" id="page-rooms"></section>
+
+    <!-- Page 3: Media -->
+    <section class="page" id="page-media"></section>
+
+    <!-- Page 4: Weather -->
+    <section class="page" id="page-weather"></section>
+
+    <!-- Page 5: Cameras -->
+    <section class="page" id="page-cameras"></section>
+
+    <!-- Page 6: Settings -->
+    <section class="page" id="page-settings"></section>
+
+  </div>
+
+  <div class="page-dots" id="page-dots"></div>
+
+  <nav class="dock" id="dock"></nav>
+
+</div>
+
+<!-- Core -->
+<script src="js/config.js"></script>
+<script src="js/homeassistant.js"></script>
+<script src="components/utils.js"></script>
+<script src="components/wallpaper.js"></script>
+
+<!-- Feature modules -->
+<script src="js/weather.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/mobile.js"></script>
+<script src="js/ring.js"></script>
+<script src="js/roborock.js"></script>
+<script src="js/spotify.js"></script>
+
+<!-- Components -->
+<script src="components/rooms.js"></script>
+<script src="components/favorites.js"></script>
+<script src="components/activity.js"></script>
+<script src="components/ambient.js"></script>
+<script src="components/cameras_page.js"></script>
+<script src="components/settings_page.js"></script>
+<script src="components/loading.js"></script>
+<script src="components/navigation.js"></script>
+
+<!-- Bootstrap -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
