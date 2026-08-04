@@ -25,7 +25,7 @@ window.DASHBOARD_CONFIG = {
     // NOTE: for a kiosk device on a trusted local network this is the
     // simplest option. For anything internet-facing, put this dashboard
     // behind HA's built-in auth proxy or a reverse proxy with its own auth.
-    token: "REPLACE_WITH_LONG_LIVED_ACCESS_TOKEN",
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2NzI2NTcyOTMwZjg0Y2Y2OGI2YjUyMmIwZDZmN2MwNiIsImlhdCI6MTc4NTgxNjY3NCwiZXhwIjoyMTAxMTc2Njc0fQ.Tsln2ydMZ6ZYZVqggfnIByYjhnXseXJBI1DNquMhc_o",
 
     // Reconnect backoff for the WebSocket connection (ms).
     reconnectMinDelay: 1000,
@@ -42,7 +42,7 @@ window.DASHBOARD_CONFIG = {
       // A weather.* entity, ideally backed by HA's OpenWeatherMap
       // integration (Settings > Devices & Services > Add Integration >
       // OpenWeatherMap). Forecasts are pulled via weather.get_forecasts.
-      weather: "weather.home",
+      weather: "weather.openweathermap",
     },
 
     person: {
@@ -52,46 +52,41 @@ window.DASHBOARD_CONFIG = {
     },
 
     phone: {
-      battery: "sensor.alex_iphone_battery_level",
-      charging: "binary_sensor.alex_iphone_charging",
-      wifi: "binary_sensor.alex_iphone_wifi_connection",
-      lastUpdated: "sensor.alex_iphone_last_update_trigger",
+      battery: "sensor.holdens_iphone_battery_level",
+      charging: "sensor.holdens_iphone_battery_state",
+      wifi: "sensor.holdens_iphone_connection_type",
+      lastUpdated: "sensor.holdens_iphone_last_update_trigger",
       // Optional — set to null to hide the "locate" affordance.
-      deviceTracker: "device_tracker.alex_iphone",
+      deviceTracker: "sensor.holdens_iphone_geocoded_location",
     },
 
     calendar: {
       // One or more calendar.* entities. The soonest upcoming event
       // across all of them is shown as "Up Next".
-      entities: ["calendar.family", "calendar.work"],
+      entities: ["calendar.2026_calendar"],
     },
 
     cameras: {
       // Ordered list — order here is the order they render in.
       entities: [
-        { entity: "camera.front_door", name: "Front Door" },
-        { entity: "camera.driveway", name: "Driveway" },
-        { entity: "camera.backyard", name: "Backyard" },
+        { entity: "camera.front_door_live_view", name: "Front Door" },
+        { entity: "camera.garage_spotlight_live_view", name: "Garage Spotlight" },
+        { entity: "camera.back_door_live_view", name: "Back Door" },
       ],
     },
 
     vacuum: {
-      vacuum: "vacuum.roborock",
+      vacuum: "vacuum.roborock_qv_35a",
     },
 
     media_player: {
       // Any HA media_player entity — Spotify integration, cast, etc.
-      player: "media_player.spotify_alex",
+      player: "media_player.spotify",
     },
 
     livingRoom: {
       name: "Living Room",
-      devices: [
-        { entity: "light.living_room_lights", name: "Lights", type: "light" },
-        { entity: "fan.living_room_fan", name: "Fan", type: "fan" },
-        { entity: "media_player.living_room_tv", name: "TV", type: "tv" },
-        { entity: "switch.living_room_outlet", name: "Outlet", type: "outlet" },
-      ],
+      devices: [],
     },
 
     // Additional rooms shown on the "Rooms" page. Home screen only
@@ -100,37 +95,21 @@ window.DASHBOARD_CONFIG = {
       {
         name: "Living Room",
         icon: "weekend",
-        devices: [
-          { entity: "light.living_room_lights", name: "Lights", type: "light" },
-          { entity: "fan.living_room_fan", name: "Fan", type: "fan" },
-          { entity: "media_player.living_room_tv", name: "TV", type: "tv" },
-          { entity: "switch.living_room_outlet", name: "Outlet", type: "outlet" },
-        ],
+        devices: [],
       },
       {
         name: "Bedroom",
         icon: "bed",
-        devices: [
-          { entity: "light.bedroom_lights", name: "Lights", type: "light" },
-          { entity: "fan.bedroom_fan", name: "Fan", type: "fan" },
-        ],
+        devices: [],
       },
       {
         name: "Kitchen",
         icon: "kitchen",
-        devices: [
-          { entity: "light.kitchen_lights", name: "Lights", type: "light" },
-          { entity: "switch.kitchen_outlet", name: "Outlet", type: "outlet" },
-        ],
+        devices: [],
       },
     ],
 
-    scenes: [
-      { entity: "scene.good_morning", name: "Good Morning", icon: "wb_twilight" },
-      { entity: "scene.good_night", name: "Good Night", icon: "bedtime" },
-      { entity: "scene.movie_time", name: "Movie Time", icon: "movie" },
-      { entity: "scene.away", name: "Away", icon: "home" },
-    ],
+    scenes: [],
 
     // Quick Controls dock. `action` maps to a handler in navigation.js.
     quickControls: [
